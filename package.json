@@ -1,7 +1,7 @@
 {
-  "name": "redux-catbook",
+  "name": "mars-photos-gallery",
   "version": "1.0.0",
-  "description": "simple Redux sample app",
+  "description": "simple Reactjs, Redux, react-router, react-router-redux redux-thunk sample app",
   "main": "index.js",
   "scripts": {
     "test": "test",
@@ -77,6 +77,5 @@
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0"
   },
-  "author": "sophie debenedetto",
-  "license": "ISC"
+  "author": "Umesh Gohil"
 }
