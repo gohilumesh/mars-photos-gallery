@@ -4,8 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { store, history } from './store/configure-store';
 import { Provider } from 'react-redux';
-import App from './app';
-import { Router, browserHistory } from 'react-router';
+import { Router } from 'react-router';
 import routes from './routes';
 import { loadPhotos } from './gallery/actions/gallery-actions';
 

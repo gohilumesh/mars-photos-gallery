@@ -17,6 +17,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));
+app.use(express.static(path.join(__dirname,'assets','public')));
 
 app.use(require('webpack-hot-middleware')(compiler));
 app.use(favicon(path.join(__dirname,'assets','public','favicon.ico')));
