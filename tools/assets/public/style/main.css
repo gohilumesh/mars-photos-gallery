@@ -3,3 +3,38 @@
 *::before {
   box-sizing: border-box;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.photo-group {
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  list-style: none;
+}
+
+.photo-group-item {
+  width: 22%;
+  margin-right: 4%;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.photo-group-item img {
+  width: 100%;
+  height: 150px;
+}
+.photo-group-item figcaption {
+  text-align: right;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+li.photo-group-item:nth-child(4n+4) {
+  margin-right: 0%;
+}

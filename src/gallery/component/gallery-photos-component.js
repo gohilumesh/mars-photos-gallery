@@ -9,6 +9,7 @@ const GalleryPhotosComponent = ({photos}) => {
         <li className="photo-group-item" key={photo.id}>
           <figure>
             <img src={photo.img_src} alt="" />
+            <figcaption>{photo.id}</figcaption>
           </figure>
         </li>
       )
