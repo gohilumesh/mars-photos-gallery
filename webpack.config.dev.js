@@ -6,6 +6,8 @@ export default {
   devtool: 'cheap-module-eval-source-map',
   noInfo: false,
   entry: [
+    // Set up an ES6-ish environment
+    'babel-polyfill',
     'eventsource-polyfill', // necessary for hot reloading with IE
     'webpack-hot-middleware/client?reload=true', //note that it reloads the page if hot module reloading fails.
     './src/index'
@@ -25,7 +27,7 @@ export default {
     new webpack.DefinePlugin({
       'process.env': {
         'API_HOST': JSON.stringify('http://localhost:5000')
-      } 
+      }
     })
   ],
   module: {

@@ -5,6 +5,8 @@ export default {
   devtool: 'source-map',
 
   entry: [
+    // Set up an ES6-ish environment
+    'babel-polyfill',
     './src/index'
   ],
 

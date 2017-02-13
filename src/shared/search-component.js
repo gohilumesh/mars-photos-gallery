@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 export default class SearchComponent extends Component {
 
-  handleSearch = e => {
+  handleSearch = (e) => {
     let query = e.target.value;
     if (this.searchPointer) {
       clearTimeout(this.searchPointer);
@@ -20,11 +20,15 @@ export default class SearchComponent extends Component {
     this.props.handleSearchChanged(undefined);
   }
 
+  state = {
+    search: this.props.search
+  }
+
   render() {
     return (
-      <div class="search-container">
-        <input name='search' type='text' defaultValue={this.props.search} value={this.state.search} onChange={this.handleSearch } />
-        {(this.state.search || this.props.search) ? <span className="clear-search" onClick={this.handleClearSearch}>X</span> : ''}
+      <div className="search-container">
+        <input name='search' type='text' value={this.state.search} onChange={this.handleSearch } />
+        {(this.state.search) ? <span className="clear-search" onClick={this.handleClearSearch}>X</span> : ''}
       </div>
     );
   }
@@ -38,8 +42,4 @@ SearchComponent.defaultProps = {
 SearchComponent.propTypes = {
   search: PropTypes.string,
   handleSearchChanged: PropTypes.func,
-};
-
-SearchComponent.state = {
-  search: ''
 };

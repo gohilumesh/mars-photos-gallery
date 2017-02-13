@@ -1,5 +1,5 @@
 import * as types from './../actions/action-types';
-import initialState from './initial-state';
+import initialState from './../../reducers/initial-state';
 
 export default function galleryPhotosReducer(state = initialState.photos, action) {
   switch (action.type) {

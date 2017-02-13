@@ -12,6 +12,19 @@ img {
   height: auto;
 }
 
+input,textarea {
+	display: inline-block;
+	font-size: 1em;
+	-webkit-appearance: none;
+	box-sizing: border-box;
+	border: 1px solid #333;
+	border-radius: 0.5em;
+	padding: 0.25em 0.6em;
+	height: 2.4em;
+  width: 100%;
+  outline: none;
+}
+
 /************************
   Global End.
 ************************/
@@ -23,6 +36,8 @@ img {
   justify-content: space-around;
   align-items: flex-start;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .photo-group-item {
