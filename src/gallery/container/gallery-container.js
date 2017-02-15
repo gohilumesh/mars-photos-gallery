@@ -13,7 +13,7 @@ class GalleryContainer extends Component {
     const photos = this.props.photos;
     const search = '';
     return (
-      <div className="container">
+      <div className="gallery-container">
         <section className="search-section">
           <SearchComponent search={search} handleSearchChanged={this.handleSearchChanged} />
         </section>
