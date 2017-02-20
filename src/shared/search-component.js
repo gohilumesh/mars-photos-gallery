@@ -27,7 +27,7 @@ export default class SearchComponent extends Component {
   render() {
     return (
       <div className="search-container">
-        <input name='search' type='text' value={this.state.search} onChange={this.handleSearch } />
+        <input name='search' placeholder={this.props.placeholder} type='text' value={this.state.search} onChange={this.handleSearch } />
         {(this.state.search) ? <span className="clear-search" onClick={this.handleClearSearch}>X</span> : ''}
       </div>
     );
@@ -42,4 +42,5 @@ SearchComponent.defaultProps = {
 SearchComponent.propTypes = {
   search: PropTypes.string,
   handleSearchChanged: PropTypes.func,
+  placeholder: PropTypes.string,
 };

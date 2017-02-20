@@ -5,7 +5,7 @@ const OptionsComponent = ({options, isOpen, onSelect}) => {
     <ul className={isOpen ? 'options-dropdown active' : 'options-dropdown'}>
     {
       options.map((option, idx) =>
-        <li index={idx} value={option.value} key={option.id} onClick={onSelect}>
+        <li data-index={idx} value={option.value} key={option.id || idx} onClick={(e) => onSelect(e)}>
           { option.name ? option.name : option.value }
         </li>
       )

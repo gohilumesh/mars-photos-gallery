@@ -2,8 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import GalleryPhotosComponent from './../component/gallery-photos-component';
 import SearchComponent from './../../shared/search-component';
+import SelectComponent from './../../shared/select-component';
 import { bindActionCreators } from 'redux';
 import { filterPhotos } from './../actions/gallery-actions';
+import CameraOptions from './camera-options';
 
 class GalleryContainer extends Component {
 
@@ -24,7 +26,8 @@ class GalleryContainer extends Component {
     return (
       <div className="gallery-container">
         <section className="search-section">
-          <SearchComponent search={search} handleSearchChanged={value => this.props.filterPhotos(value)} />
+          <SearchComponent search={search} placeholder="Filter photos" handleSearchChanged={value => this.props.filterPhotos(value)} />
+          <SelectComponent selectedText="Filter By Camera" options={CameraOptions} onSelect={() => {}} />
         </section>
         <section className="photo-section">
           <GalleryPhotosComponent {...gallery} />

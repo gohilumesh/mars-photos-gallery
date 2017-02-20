@@ -1,5 +1,5 @@
 
-const mars_url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-02-7&api_key=DEMO_KEY';
+const mars_url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-02-7&api_key=bUhlwLjzTZ21PGaDtooSZ3xg5HGyjXksgKgEq8j2';
 
 export default class ApiPhotos {
   static requestHeaders() {

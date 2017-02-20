@@ -14,20 +14,23 @@ body {
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
-  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #222; }
+  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222;
+  background-color: #f1f4f9;
+}
 
 img {
   max-width: 100%;
   height: auto;
 }
 
-input,textarea {
+input,
+textarea {
 	display: inline-block;
 	font-size: 1em;
 	-webkit-appearance: none;
 	box-sizing: border-box;
-	border: 1px solid #333;
+	border: 1px solid #999;
 	border-radius: 0.5em;
 	padding: 5px 30px 5px 10px;
 	height: 2.4em;
@@ -63,13 +66,27 @@ input,textarea {
 
 .select-wrapper-dropdown {
   position: relative;
-  padding: 10px;
+  padding: 5px;
   background: #fff;
   border-radius: 7px;
   cursor: pointer;
   outline: none;
   font-weight: bold;
-  color: #ddd;
+  color: #3a3a3a;
+  border: 1px solid #999;
+}
+
+.select-wrapper-dropdown::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  border-width: 6px 6px 0 6px;
+  margin-top: -3px;
+  border-color: #999 transparent;
 }
 
 .select-wrapper-dropdown .options-dropdown {
@@ -77,16 +94,28 @@ input,textarea {
   top: 100%;
   left: 0;
   right: 0;
-  background: white;
+  padding: 0;
+  background: #fff;
   border-radius: inherit;
   font-weight: normal;
   transition: all 0.5s ease-in;
   list-style: none;
   opacity: 0;
   pointer-events: none;
+  margin: 0;
+  border: 1px solid #999;
 }
 
-.select-wrapper-dropdown.active .options-dropdown {
+.select-wrapper-dropdown .options-dropdown li {
+  padding: 5px;
+}
+
+.select-wrapper-dropdown .options-dropdown li:nth-child(even) {
+  background-color: #ccc;
+  color: #fff;
+}
+
+.select-wrapper-dropdown .options-dropdown.active {
   opacity: 1;
   pointer-events: auto;
 }
@@ -94,6 +123,18 @@ input,textarea {
 /************************
   Global End.
 ************************/
+.search-section {
+  display: flex;
+}
+
+.search-container {
+  flex: 3 1 0%;
+  margin-right: 20px;
+}
+
+.select-wrapper-dropdown {
+  flex: 1 1 0%;
+}
 .photo-section {
   margin-top: 20px;
 }

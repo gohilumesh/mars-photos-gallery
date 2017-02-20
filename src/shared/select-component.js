@@ -4,7 +4,7 @@ import OptionsComponent from './options-component';
 class SelectComponent extends Component {
 
   onSelect = (e) => {
-    console.log(e);
+    e.stopPropagation();
     let target = e.target;
     this.setState({
       isOpen: false,
@@ -19,10 +19,16 @@ class SelectComponent extends Component {
     selectedText: this.props.selectedText
   }
 
+  toggleDropDown = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
   render() {
     return (
-      <div className="select-wrapper-dropdown">
-        <span>{this.state.selectedText}</span>
+      <div className="select-wrapper-dropdown" onClick={this.toggleDropDown}>
+        <span>&nbsp;{this.state.selectedText}</span>
         <OptionsComponent options={this.props.options} isOpen={this.state.isOpen} onSelect={this.onSelect} />
       </div>
     );
