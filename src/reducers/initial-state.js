@@ -1,4 +1,10 @@
 export default {
-  photos: [],
-  filter: {}
+  gallery: {
+    loading: false,
+    photos: []
+  },
+  filter: {
+    query: null,
+    camera: null
+  }
 };

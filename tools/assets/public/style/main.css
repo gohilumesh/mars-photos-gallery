@@ -7,6 +7,16 @@
   box-sizing: border-box;
 }
 
+
+html {
+  font-size: 62.5%; }
+body {
+  font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #222; }
+
 img {
   max-width: 100%;
   height: auto;
@@ -19,15 +29,74 @@ input,textarea {
 	box-sizing: border-box;
 	border: 1px solid #333;
 	border-radius: 0.5em;
-	padding: 0.25em 0.6em;
+	padding: 5px 30px 5px 10px;
 	height: 2.4em;
   width: 100%;
   outline: none;
 }
 
+.search-container {
+  position: relative;
+}
+
+.clear-search {
+  position: absolute;
+  top: 6px;
+  right: 17px;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.no-data-display,
+.loading-data {
+  margin: 20px auto;
+  font-size: 2rem;
+  width: 30%;
+}
+/** drop down styles **/
+
+.select-wrapper-dropdown {
+  position: relative;
+  padding: 10px;
+  background: #fff;
+  border-radius: 7px;
+  cursor: pointer;
+  outline: none;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.select-wrapper-dropdown .options-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border-radius: inherit;
+  font-weight: normal;
+  transition: all 0.5s ease-in;
+  list-style: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.select-wrapper-dropdown.active .options-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /************************
   Global End.
 ************************/
+.photo-section {
+  margin-top: 20px;
+}
 
 .photo-group {
   display: flex;
@@ -45,6 +114,10 @@ input,textarea {
   margin-right: 4%;
   margin-bottom: 20px;
   overflow: hidden;
+}
+
+.photo-group-item figure {
+  margin: 0;
 }
 
 .photo-group-item img {
