@@ -4,17 +4,24 @@ import GalleryPhotosComponent from './../component/gallery-photos-component';
 import SearchComponent from './../../shared/search-component';
 import SelectComponent from './../../shared/select-component';
 import { bindActionCreators } from 'redux';
-import { filterPhotos } from './../actions/gallery-actions';
+import { filterByQuery, filterByCamera } from './../actions/gallery-actions';
 import CameraOptions from './camera-options';
 
 class GalleryContainer extends Component {
 
   filterPhotos = (photos, filter) => {
-    if (filter.query == null) {
+    if (filter.query == null && filter.camera == null) {
       return photos;
-    } else {
-      return photos.filter(photo => (photo.id+'').indexOf(filter.query) > -1);
     }
+
+    if (filter.query && filter.camera) {
+      return photos.filter(photo => (photo.id+'').indexOf(filter.query) > -1 && photo.camera.name === filter.camera);
+    } else if (filter.query) {
+      return photos.filter(photo => (photo.id+'').indexOf(filter.query) > -1);
+    } else if (filter.camera){
+      return photos.filter(photo => photo.camera.name === filter.camera);
+    }
+    return photos;
   }
 
   render() {
@@ -26,8 +33,8 @@ class GalleryContainer extends Component {
     return (
       <div className="gallery-container">
         <section className="search-section">
-          <SearchComponent search={search} placeholder="Filter photos" handleSearchChanged={value => this.props.filterPhotos(value)} />
-          <SelectComponent selectedText="Filter By Camera" options={CameraOptions} onSelect={() => {}} />
+          <SearchComponent search={search} placeholder="Filter photos" handleSearchChanged={value => this.props.filterByQuery(value)} />
+          <SelectComponent selectedText="Filter By Camera" options={CameraOptions} onSelect={value => this.props.filterByCamera(value)} />
         </section>
         <section className="photo-section">
           <GalleryPhotosComponent {...gallery} />
@@ -48,7 +55,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  filterPhotos
+  filterByQuery,
+  filterByCamera
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryContainer);

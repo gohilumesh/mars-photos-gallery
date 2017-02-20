@@ -20,8 +20,14 @@ export function loadPhotos() {
   };
 }
 
-export function filterPhotos(query) {
+export function filterByQuery(query) {
   return function(dispatch) {
-      dispatch({type: types.UPDATED_FILTER, payload: {query}});
+      dispatch({type: types.UPDATE_FILTER, payload: {query}});
+  }
+}
+
+export function filterByCamera(name) {
+  return function(dispatch) {
+    dispatch({type: types.UPDATE_FILTER, payload: {camera: name}});
   }
 }

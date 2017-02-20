@@ -6,11 +6,14 @@ class SelectComponent extends Component {
   onSelect = (e) => {
     e.stopPropagation();
     let target = e.target;
+
     this.setState({
       isOpen: false,
       selectedText: target.textContent,
       selectedValue: target.getAttribute('value')
     });
+
+    this.props.onSelect(target.getAttribute('value'));
   }
 
   state = {

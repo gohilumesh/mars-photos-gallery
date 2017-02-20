@@ -58,9 +58,7 @@ textarea {
 
 .no-data-display,
 .loading-data {
-  margin: 20px auto;
   font-size: 2rem;
-  width: 30%;
 }
 /** drop down styles **/
 
@@ -137,6 +135,7 @@ textarea {
 }
 .photo-section {
   margin-top: 20px;
+  text-align: center;
 }
 
 .photo-group {
