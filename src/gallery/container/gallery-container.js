@@ -59,4 +59,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   filterByCamera
 }, dispatch)
 
+//https://github.com/paulhoughton/remember/tree/master/src/components
+// Lakston
+
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryContainer);
