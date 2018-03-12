@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PhotoItem = ({photo}) => (
-  <li className="photo-group-item" key={photo.id}>
+  <li className="photo-group-item">
     <figure>
       <img src={photo.img_src} alt="" />
       <figcaption>{photo.id}</figcaption>

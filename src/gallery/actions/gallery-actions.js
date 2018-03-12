@@ -1,12 +1,17 @@
 import ApiPhotos from './../../api/api-photos';
 import * as types from './action-types';
 
-export function loadPhotosSuccess(photos) {
+const loadPhotosSuccess = photos => {
   return {
     type: types.LOAD_PHOTOS_SUCCESS, payload: photos
   };
-}
+};
 
+const loadPhotosError = () => {
+  return {
+    type: types.LOAD_PHOTOS_ERROR
+  };
+};
 
 export function loadPhotos() {
   // make async call to api, handle promise, dispatch action when promise is resolved
@@ -15,7 +20,7 @@ export function loadPhotos() {
     return ApiPhotos.getPhotos().then(photos => {
       dispatch(loadPhotosSuccess(photos));
     }).catch(error => {
-      throw(error);
+      dispatch(loadPhotosError());
     });
   };
 }

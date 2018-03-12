@@ -1,7 +1,8 @@
 export default {
   gallery: {
     loading: false,
-    photos: []
+    photos: [],
+    error: false
   },
   filter: {
     query: null,

@@ -10,7 +10,7 @@ import CameraOptions from './camera-options';
 class GalleryContainer extends Component {
 
   filterPhotos = (photos, filter) => {
-    if (filter.query == null && filter.camera == null) {
+    if (!(filter.query || filter.camera)) {
       return photos;
     }
 
@@ -58,8 +58,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   filterByQuery,
   filterByCamera
 }, dispatch)
-
-//https://github.com/paulhoughton/remember/tree/master/src/components
-// Lakston
 
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryContainer);
